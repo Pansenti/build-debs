@@ -1,0 +1,41 @@
+From b08d37ce2e8d6c8514565393785eb7168d71e3fd Mon Sep 17 00:00:00 2001
+From: Scott Ellis <scott@pansenti.com>
+Date: Tue, 26 Nov 2013 14:18:31 -0500
+Subject: [PATCH] Prep for debian package build
+
+---
+ SyntroLCam.pro | 3 ++-
+ version.pri    | 1 +
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 version.pri
+
+diff --git a/SyntroLCam.pro b/SyntroLCam.pro
+index 851daa3..8d9ae72 100644
+--- a/SyntroLCam.pro
++++ b/SyntroLCam.pro
+@@ -17,7 +17,7 @@ CONFIG += debug_and_release link_pkgconfig
+ PKGCONFIG += syntro
+ 
+ unix {
+-	target.path = /usr/bin
++	target.path = $$PREFIX/bin
+ 	INSTALLS += target
+ }
+ 
+@@ -31,5 +31,6 @@ UI_DIR += GeneratedFiles
+ 
+ RCC_DIR += GeneratedFiles
+ 
++include(version.pri)
+ include(SyntroLCam.pri)
+ 
+diff --git a/version.pri b/version.pri
+new file mode 100644
+index 0000000..c210b5b
+--- /dev/null
++++ b/version.pri
+@@ -0,0 +1 @@
++!win32:VERSION = 0.8.0
+-- 
+1.8.1.2
+
