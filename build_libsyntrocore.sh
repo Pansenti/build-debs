@@ -7,7 +7,7 @@ cd temp
 git clone https://github.com/Syntro/SyntroCore.git
 
 # fix up install paths and adjust top level .pro to only build libraries
-cp ../libsyntrocore_dpkg_prep.patch SyntroCore
+cp ../patches/libsyntrocore_dpkg_prep.patch SyntroCore
 cd SyntroCore
 git apply libsyntrocore_dpkg_prep.patch
 
@@ -29,13 +29,13 @@ dpkg-buildpackage
 
 cd ../..
 
-if [ ! -d pkgs ]; then
-    mkdir pkgs
+if [ ! -d packages ]; then
+    mkdir packages
 fi
 
-cp temp/*.deb pkgs
+cp temp/*.deb packages
 
 rm -rf temp
 
-echo -e "\nNew deb files can be found in the pkgs directory"
+echo -e "\nNew deb files can be found in the packages directory"
 
