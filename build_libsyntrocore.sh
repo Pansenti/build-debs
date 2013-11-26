@@ -21,14 +21,8 @@ mv SyntroCore $PKGNAME
 
 cd $PKGNAME
 
-# generate the debian files
-dh_make -c gpl2 -e scott@pansenti.com -l -n -y
-
-# remove some files we don't use
-rm debian/*.ex debian/*.EX debian/README*
-
-# copy over the files we need to modify
-cp ../../libsyntrocore_debian/* debian/
+# copy over the debian build files 
+cp -r ../../libsyntrocore_debian debian
 
 # build the package
 dpkg-buildpackage 

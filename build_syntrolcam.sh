@@ -10,7 +10,7 @@ cd temp
 git clone https://github.com/Syntro/SyntroLCam.git
 
 # fix up install paths and adjust top level .pro to only build libraries
-cp ../syntrocam_dpkg_prep.patch SyntroLCam
+cp ../syntrolcam_dpkg_prep.patch SyntroLCam
 cd SyntroLCam
 git apply syntrolcam_dpkg_prep.patch
 
@@ -24,8 +24,8 @@ mv SyntroLCam $PKGNAME
 
 cd $PKGNAME
 
-# copy over the files we need to modify
-cp -r ../../syntrolcam_debian/ debian
+# copy over the debian build files 
+cp -r ../../syntrolcam_debian debian
 
 # build the package
 dpkg-buildpackage 
