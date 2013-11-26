@@ -6,7 +6,7 @@ Some helper scripts for building Ubuntu/Debian deb packages for Syntro component
 
 A Linux Ubuntu or Debian system with the following packages installed.
 
-        sudo apt-get install build-essential git gpupg pbuilder ubuntu-dev-tools bzr-builddeb apt-file
+        sudo apt-get install build-essential git gpupg pbuilder ubuntu-dev-tools bzr-builddeb apt-file cdbs debhelper
 
 For RPi running Raspbian Wheezy or Ubuntu Qt4 systems
 
