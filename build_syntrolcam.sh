@@ -25,7 +25,7 @@ mv SyntroLCam $PKGNAME
 cd $PKGNAME
 
 # copy over the debian build files 
-cp -r ../../syntrolcam_debian debian
+cp -r ../../debian/syntrolcam debian
 
 # build the package
 dpkg-buildpackage 

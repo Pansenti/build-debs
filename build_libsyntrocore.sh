@@ -22,7 +22,7 @@ mv SyntroCore $PKGNAME
 cd $PKGNAME
 
 # copy over the debian build files 
-cp -r ../../libsyntrocore_debian debian
+cp -r ../../debian/libsyntrocore debian
 
 # build the package
 dpkg-buildpackage 

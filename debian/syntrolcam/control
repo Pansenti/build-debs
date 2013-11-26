@@ -1,0 +1,14 @@
+Source: syntrolcam
+Section: unknown
+Priority: extra
+Maintainer: scott <scott@pansenti.com>
+Build-Depends: debhelper (>= 8.0.0), libsyntrocore-dev (>= 0.8.0)
+Standards-Version: 3.9.4
+Homepage: http://www.pansenti.com 
+#Vcs-Git: git://git.debian.org/collab-maint/syntrolcam.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/syntrolcam.git;a=summary
+
+Package: syntrolcam
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libsyntrocore1 (>= 0.8.0)
+Description: Syntro web camera application 

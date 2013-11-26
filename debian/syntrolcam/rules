@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+include /usr/share/cdbs/1/rules/debhelper.mk
+include /usr/share/cdbs/1/class/qmake.mk
+
+QMAKE= qmake
+CFLAGS= -O2
+CXXFLAGS= -O2
+DEB_MAKE_INSTALL_TARGET = install INSTALL_ROOT=$(DEB_DESTDIR)/usr
+DEB_QMAKE_ARGS = VERSION=$(DEB_VERSION)
+DEB_DH_ALWAYS_EXCLUDE := COPYING.gz
+DEB_DH_MD5SUMS_ARGS := --exclude=COPYING.gz
+
