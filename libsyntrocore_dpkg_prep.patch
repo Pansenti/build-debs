@@ -1,0 +1,95 @@
+From 8be2334afd9bd78882f7d6fdef1d327962c901ed Mon Sep 17 00:00:00 2001
+From: Scott Ellis <scott@pansenti.com>
+Date: Tue, 26 Nov 2013 06:13:49 -0500
+Subject: [PATCH] Prep syntrocore for deb package build of libraries
+
+---
+ SyntroControlLib/SyntroControlLib.pro |  4 ++--
+ SyntroCore.pro                        | 10 +---------
+ SyntroGUI/SyntroGUI.pro               |  4 ++--
+ SyntroLib/SyntroLib.pro               | 10 +++++-----
+ 4 files changed, 10 insertions(+), 18 deletions(-)
+
+diff --git a/SyntroControlLib/SyntroControlLib.pro b/SyntroControlLib/SyntroControlLib.pro
+index 6d69cab..a39963d 100644
+--- a/SyntroControlLib/SyntroControlLib.pro
++++ b/SyntroControlLib/SyntroControlLib.pro
+@@ -15,8 +15,8 @@ include(../version.pri)
+ 
+ # common mac or linux
+ unix {
+-        target.path = /usr/lib
+-	headerfiles.path = /usr/include/syntro/SyntroControlLib
++        target.path = $$PREFIX/lib
++	headerfiles.path = $$PREFIX/include/syntro/SyntroControlLib
+ 	headerfiles.files += *.h
+ 
+ 	INSTALLS += headerfiles target
+diff --git a/SyntroCore.pro b/SyntroCore.pro
+index a94068b..ff07d25 100644
+--- a/SyntroCore.pro
++++ b/SyntroCore.pro
+@@ -7,16 +7,8 @@ TEMPLATE = subdirs
+ 
+ SUBDIRS = SyntroLib \
+         SyntroGUI \
+-        SyntroControlLib \
+-        SyntroControl \
+-        SyntroExec \
+-        SyntroDB \
+-        SyntroLog
++        SyntroControlLib
+ 
+ SyntroGUI.depends = SyntroLib
+ SyntroControlLib.depends = SyntroLib
+-SyntroControl.depends = SyntroLib SyntroGUI SyntroControlLib
+-SyntroExec.depends = SyntroLib SyntroGUI
+-SyntroLog.depends = SyntroLib SyntroGUI
+-SyntroDB.depends = SyntroLib SyntroGUI
+ 
+diff --git a/SyntroGUI/SyntroGUI.pro b/SyntroGUI/SyntroGUI.pro
+index d00c64d..ed23f0f 100644
+--- a/SyntroGUI/SyntroGUI.pro
++++ b/SyntroGUI/SyntroGUI.pro
+@@ -14,8 +14,8 @@ include(../version.pri)
+ 
+ # common mac or linux
+ unix {
+-        target.path = /usr/lib
+-	headerfiles.path = /usr/include/syntro
++        target.path = $$PREFIX/lib
++	headerfiles.path = $$PREFIX/include/syntro
+ 	headerfiles.files += *.h
+ 	INSTALLS += headerfiles target
+ }
+diff --git a/SyntroLib/SyntroLib.pro b/SyntroLib/SyntroLib.pro
+index 069d27e..0614edb 100644
+--- a/SyntroLib/SyntroLib.pro
++++ b/SyntroLib/SyntroLib.pro
+@@ -14,18 +14,18 @@ include(../version.pri)
+ 
+ # common mac or linux
+ unix {
+-        target.path = /usr/lib
++        target.path = $$PREFIX/lib
+ 
+-	headerfiles.path = /usr/include/syntro
++	headerfiles.path = $$PREFIX/include/syntro
+ 	headerfiles.files += *.h
+ 
+-	avheaderfiles.path = /usr/include/syntro/SyntroAV
++	avheaderfiles.path = $$PREFIX/include/syntro/SyntroAV
+ 	avheaderfiles.files += SyntroAV/*.h
+ 
+-	robotheaderfiles.path = /usr/include/syntro/SyntroRobot
++	robotheaderfiles.path = $$PREFIX/include/syntro/SyntroRobot
+ 	robotheaderfiles.files += SyntroRobot/*.h
+ 
+-        pkgconfigfiles.path = /usr/lib/pkgconfig
++        pkgconfigfiles.path = $$PREFIX/lib/pkgconfig
+         pkgconfigfiles.files = syntro.pc
+ 
+ 	INSTALLS += headerfiles \
+-- 
+1.8.1.2
+
