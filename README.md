@@ -16,6 +16,10 @@ For Ubuntu Qt5 systems
 
         sudo apt-get install qtbase5-dev
 
+For building syntrocam
+
+        sudo apt-get install libasound2 libasound2-dev
+
 ## Fetch
 
 Clone the build-debs repo this way
@@ -29,11 +33,11 @@ Build the libsyntrocore packages with the build_libsyntrocore.sh script
         cd build-debs
         ./build_libsyntrocore.sh
 
-Build the syntrolcam package with the build_syntrolcam.sh script
+Build the syntrocam package with the build_syntrocam.sh script
 
-        ./build_syntrolcam.sh
+        ./build_syntrocam.sh
 
-The syntrolcam build requires the libsyntrocore packages be installed.
+The syntrocam build requires the libsyntrocore packages be installed first.
 
 
 ## Install 
@@ -44,5 +48,15 @@ another machine similar to the build system.
         cd pkgs
         sudo dpkg -i libsyntrocore*
 
-        sudo dpkg -i syntrolcam*
+        sudo dpkg -i syntrocam*
+
+## Removal
+
+Remove the packages this way
+
+        sudo dpkg -r syntrocam libsyntrocore1 libsyntrocore-dev
+
+To completely remove all record of these packages, use --purge
+
+        sudo dpkg -r --purge syntrocam libsyntrocore1 libsyntrocore-dev
 
