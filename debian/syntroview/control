@@ -1,0 +1,14 @@
+Source: syntroview
+Section: unknown
+Priority: extra
+Maintainer: scott <scott@pansenti.com>
+Build-Depends: debhelper (>= 8.0.0), libsyntrocore-dev (>= 0.9.0), libasound2-dev (>= 1.0.25)
+Standards-Version: 3.9.4
+Homepage: http://www.pansenti.com 
+#Vcs-Git: git://git.debian.org/collab-maint/syntroview.git
+#Vcs-Browser: http://git.debian.org/?p=collab-maint/syntroview.git;a=summary
+
+Package: syntroview
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libsyntrocore1 (>= 0.9.0), libasound2 (>= 1.0.25)
+Description: Syntro video viewing application 
