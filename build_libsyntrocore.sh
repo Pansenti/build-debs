@@ -4,7 +4,8 @@ mkdir temp
 cd temp
 
 # get a fresh snapshot of the public repo 
-git clone https://github.com/Syntro/SyntroCore.git
+#git clone https://github.com/Syntro/SyntroCore.git
+git clone git@github.com:Pansenti/SyntroCore.git
 
 # fix up install paths and adjust top level .pro to only build libraries
 cp ../patches/libsyntrocore_dpkg_prep.patch SyntroCore

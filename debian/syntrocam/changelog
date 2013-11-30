@@ -1,5 +1,5 @@
-syntrocam (0.8.0) unstable; urgency=low
+syntrocam (0.9.0) unstable; urgency=low
 
-  * Initial Release.
+  * Upgrade to v0.9.0 
 
- -- scott <scott@pansenti.com>  Tue, 26 Nov 2013 14:21:22 -0500
+ -- scott <scott@pansenti.com>  Sat, 30 Nov 2013 10:38:00 -0500

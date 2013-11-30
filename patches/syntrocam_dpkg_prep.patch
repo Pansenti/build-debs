@@ -1,25 +1,25 @@
-From 1e18b38f57f5421d4a40e42512882690f4ee0fdf Mon Sep 17 00:00:00 2001
+From c17307151d434981d566b3b60da298ab82e1cc07 Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@pansenti.com>
-Date: Wed, 27 Nov 2013 10:49:00 -0500
-Subject: [PATCH] Fixup target path in .pro for deb build
+Date: Sat, 30 Nov 2013 10:55:27 -0500
+Subject: [PATCH] Prep for debian build
 
 ---
  SyntroCam.pro | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/SyntroCam.pro b/SyntroCam.pro
-index 3e24fa7..7d9ef8e 100644
+index fc3cfbf..abf4b06 100644
 --- a/SyntroCam.pro
 +++ b/SyntroCam.pro
-@@ -18,7 +18,7 @@ CONFIG += debug_and_release link_pkgconfig
- PKGCONFIG += syntro
- 
- unix {
--	target.path = /usr/bin
-+	target.path = $$PREFIX/bin
- 	INSTALLS += target
+@@ -32,7 +32,7 @@ unix {
+ 		CONFIG += link_pkgconfig
+     		LIBS += -lasound
+                 PKGCONFIG += syntro
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 		INSTALLS += target
+         }
  }
- LIBS += -lasound
 -- 
 1.8.1.2
 
