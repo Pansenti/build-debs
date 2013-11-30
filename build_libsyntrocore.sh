@@ -1,6 +1,11 @@
 #!/bin/bash
 
-mkdir temp
+if [ -d temp ]; then
+    rm -rf temp/*
+else
+    mkdir temp
+fi
+
 cd temp
 
 # get a fresh snapshot of the public repo 
