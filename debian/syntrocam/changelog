@@ -1,5 +1,6 @@
-syntrocam (0.9.0) unstable; urgency=low
+syntrocam (0.9.1) unstable; urgency=low
 
-  * Upgrade to v0.9.0 
+  * Tweaks to GUI
+  * Upgrade to v0.9.1 
 
- -- scott <scott@pansenti.com>  Sat, 30 Nov 2013 10:38:00 -0500
+ -- scott <scott@pansenti.com>  Thu, 5 Dec 2013 13:18:00 -0500
