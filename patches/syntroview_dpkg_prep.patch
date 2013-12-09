@@ -1,6 +1,6 @@
-From 2a02a9a6f1e572aa46c769bb8a4fb33655a39c7e Mon Sep 17 00:00:00 2001
+From 189857f8e51bb6a3652819e93a6f0d82fe969204 Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@pansenti.com>
-Date: Sat, 30 Nov 2013 11:49:23 -0500
+Date: Mon, 9 Dec 2013 15:00:14 -0500
 Subject: [PATCH] Prep install target for debian build
 
 ---
@@ -8,18 +8,18 @@ Subject: [PATCH] Prep install target for debian build
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/SyntroView.pro b/SyntroView.pro
-index 03fe7eb..71fe3e1 100644
+index bf75a55..ed4c715 100644
 --- a/SyntroView.pro
 +++ b/SyntroView.pro
-@@ -19,7 +19,7 @@ unix {
- 		CONFIG -= app_bundle
- 	} else {
+@@ -37,7 +37,7 @@ unix {
+ 		PKGCONFIG += syntro
+ 
  		LIBS += -lasound
 -		target.path = /usr/bin
 +		target.path = $$PREFIX/bin
- 		INSTALLS += target
  	}
- 	PKGCONFIG += syntro
+ 
+ 	INSTALLS += target
 -- 
 1.8.1.2
 

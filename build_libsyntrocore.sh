@@ -16,7 +16,6 @@ git clone git@github.com:Pansenti/SyntroCore.git
 cp ../patches/libsyntrocore_dpkg_prep.patch SyntroCore
 cd SyntroCore
 git apply libsyntrocore_dpkg_prep.patch
-
 cd ..
 
 VERSION=`perl -a -lne 'print $F[2]' SyntroCore/version.pri`

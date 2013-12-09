@@ -18,7 +18,6 @@ git clone git@github.com:Pansenti/SyntroView.git
 cp ../patches/syntroview_dpkg_prep.patch SyntroView
 cd SyntroView
 git apply syntroview_dpkg_prep.patch
-
 cd ..
 
 VERSION=`perl -a -lne 'print $F[2]' SyntroView/version.pri`

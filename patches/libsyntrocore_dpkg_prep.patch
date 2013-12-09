@@ -1,95 +1,128 @@
-From 8be2334afd9bd78882f7d6fdef1d327962c901ed Mon Sep 17 00:00:00 2001
+From 1d743790ff49c261e206235067a19bd96506649a Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@pansenti.com>
-Date: Tue, 26 Nov 2013 06:13:49 -0500
-Subject: [PATCH] Prep syntrocore for deb package build of libraries
+Date: Mon, 9 Dec 2013 15:08:52 -0500
+Subject: [PATCH] Prep install target for debian build
 
 ---
+ SyntroControl/SyntroControl.pro       |  2 +-
  SyntroControlLib/SyntroControlLib.pro |  4 ++--
- SyntroCore.pro                        | 10 +---------
+ SyntroDB/SyntroDB.pro                 |  2 +-
+ SyntroExec/SyntroExec.pro             |  2 +-
  SyntroGUI/SyntroGUI.pro               |  4 ++--
  SyntroLib/SyntroLib.pro               | 10 +++++-----
- 4 files changed, 10 insertions(+), 18 deletions(-)
+ SyntroLog/SyntroLog.pro               |  2 +-
+ 7 files changed, 13 insertions(+), 13 deletions(-)
 
+diff --git a/SyntroControl/SyntroControl.pro b/SyntroControl/SyntroControl.pro
+index 9a81b63..63b1f79 100644
+--- a/SyntroControl/SyntroControl.pro
++++ b/SyntroControl/SyntroControl.pro
+@@ -27,7 +27,7 @@ unix {
+ 		target.path = /usr/local/bin
+ 	}
+ 	else {
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 	}
+ 
+         INCLUDEPATH += ../SyntroLib \
 diff --git a/SyntroControlLib/SyntroControlLib.pro b/SyntroControlLib/SyntroControlLib.pro
-index 6d69cab..a39963d 100644
+index d4da634..f38b14a 100644
 --- a/SyntroControlLib/SyntroControlLib.pro
 +++ b/SyntroControlLib/SyntroControlLib.pro
-@@ -15,8 +15,8 @@ include(../version.pri)
+@@ -20,8 +20,8 @@ unix {
+ 		headerfiles.path = /usr/local/include/syntro/SyntroControlLib
+ 	}
+ 	else {
+-        	target.path = /usr/lib
+-		headerfiles.path = /usr/include/syntro/SyntroControlLib
++        	target.path = $$PREFIX/lib
++		headerfiles.path = $$PREFIX/include/syntro/SyntroControlLib
+ 	}
  
- # common mac or linux
- unix {
--        target.path = /usr/lib
--	headerfiles.path = /usr/include/syntro/SyntroControlLib
-+        target.path = $$PREFIX/lib
-+	headerfiles.path = $$PREFIX/include/syntro/SyntroControlLib
  	headerfiles.files += *.h
+diff --git a/SyntroDB/SyntroDB.pro b/SyntroDB/SyntroDB.pro
+index 098f89f..fb0fb75 100644
+--- a/SyntroDB/SyntroDB.pro
++++ b/SyntroDB/SyntroDB.pro
+@@ -26,7 +26,7 @@ unix {
+ 		target.path = /usr/local/bin
+ 	}
+ 	else {
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 	}
  
- 	INSTALLS += headerfiles target
-diff --git a/SyntroCore.pro b/SyntroCore.pro
-index a94068b..ff07d25 100644
---- a/SyntroCore.pro
-+++ b/SyntroCore.pro
-@@ -7,16 +7,8 @@ TEMPLATE = subdirs
+ 	INSTALLS += target
+diff --git a/SyntroExec/SyntroExec.pro b/SyntroExec/SyntroExec.pro
+index 1f323b3..faea714 100644
+--- a/SyntroExec/SyntroExec.pro
++++ b/SyntroExec/SyntroExec.pro
+@@ -27,7 +27,7 @@ unix {
+ 		target.path = /usr/local/bin
+ 	}
+ 	else {
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 	}
  
- SUBDIRS = SyntroLib \
-         SyntroGUI \
--        SyntroControlLib \
--        SyntroControl \
--        SyntroExec \
--        SyntroDB \
--        SyntroLog
-+        SyntroControlLib
- 
- SyntroGUI.depends = SyntroLib
- SyntroControlLib.depends = SyntroLib
--SyntroControl.depends = SyntroLib SyntroGUI SyntroControlLib
--SyntroExec.depends = SyntroLib SyntroGUI
--SyntroLog.depends = SyntroLib SyntroGUI
--SyntroDB.depends = SyntroLib SyntroGUI
- 
+         INSTALLS += target
 diff --git a/SyntroGUI/SyntroGUI.pro b/SyntroGUI/SyntroGUI.pro
-index d00c64d..ed23f0f 100644
+index f97e1dd..8a4339a 100644
 --- a/SyntroGUI/SyntroGUI.pro
 +++ b/SyntroGUI/SyntroGUI.pro
-@@ -14,8 +14,8 @@ include(../version.pri)
+@@ -19,8 +19,8 @@ unix {
+ 		headerfiles.path = /usr/local/include/syntro
+ 	}
+ 	else {
+-		target.path = /usr/lib
+-		headerfiles.path = /usr/include/syntro
++		target.path = $$PREFIX/lib
++		headerfiles.path = $$PREFIX/include/syntro
+ 	}
  
- # common mac or linux
- unix {
--        target.path = /usr/lib
--	headerfiles.path = /usr/include/syntro
-+        target.path = $$PREFIX/lib
-+	headerfiles.path = $$PREFIX/include/syntro
  	headerfiles.files += *.h
- 	INSTALLS += headerfiles target
- }
 diff --git a/SyntroLib/SyntroLib.pro b/SyntroLib/SyntroLib.pro
-index 069d27e..0614edb 100644
+index 2901508..e580ac8 100644
 --- a/SyntroLib/SyntroLib.pro
 +++ b/SyntroLib/SyntroLib.pro
-@@ -14,18 +14,18 @@ include(../version.pri)
+@@ -27,18 +27,18 @@ unix {
+ 		robotheaderfiles.files += SyntroRobot/*.h
+ 	}
+ 	else {
+-	        target.path = /usr/lib
++	        target.path = $$PREFIX/lib
  
- # common mac or linux
- unix {
--        target.path = /usr/lib
-+        target.path = $$PREFIX/lib
+-		headerfiles.path = /usr/include/syntro
++		headerfiles.path = $$PREFIX/include/syntro
+ 		headerfiles.files += *.h
  
--	headerfiles.path = /usr/include/syntro
-+	headerfiles.path = $$PREFIX/include/syntro
- 	headerfiles.files += *.h
+-		avheaderfiles.path = /usr/include/syntro/SyntroAV
++		avheaderfiles.path = $$PREFIX/include/syntro/SyntroAV
+ 		avheaderfiles.files += SyntroAV/*.h
  
--	avheaderfiles.path = /usr/include/syntro/SyntroAV
-+	avheaderfiles.path = $$PREFIX/include/syntro/SyntroAV
- 	avheaderfiles.files += SyntroAV/*.h
+-		robotheaderfiles.path = /usr/include/syntro/SyntroRobot
++		robotheaderfiles.path = $$PREFIX/include/syntro/SyntroRobot
+ 		robotheaderfiles.files += SyntroRobot/*.h
  
--	robotheaderfiles.path = /usr/include/syntro/SyntroRobot
-+	robotheaderfiles.path = $$PREFIX/include/syntro/SyntroRobot
- 	robotheaderfiles.files += SyntroRobot/*.h
+-		pkgconfigfiles.path = /usr/lib/pkgconfig
++		pkgconfigfiles.path = $$PREFIX/lib/pkgconfig
+ 		pkgconfigfiles.files = syntro.pc
+ 	}
  
--        pkgconfigfiles.path = /usr/lib/pkgconfig
-+        pkgconfigfiles.path = $$PREFIX/lib/pkgconfig
-         pkgconfigfiles.files = syntro.pc
+diff --git a/SyntroLog/SyntroLog.pro b/SyntroLog/SyntroLog.pro
+index 17bf89e..577e179 100644
+--- a/SyntroLog/SyntroLog.pro
++++ b/SyntroLog/SyntroLog.pro
+@@ -28,7 +28,7 @@ unix {
+ 		INSTALLS += target
+ 	}
+ 	else {
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 		INSTALLS += target
+ 	}
  
- 	INSTALLS += headerfiles \
 -- 
 1.8.1.2
 
