@@ -1,6 +1,6 @@
-From 1d743790ff49c261e206235067a19bd96506649a Mon Sep 17 00:00:00 2001
+From 1b6b4d8856a5ed885f716f65ae1992630578806f Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@pansenti.com>
-Date: Mon, 9 Dec 2013 15:08:52 -0500
+Date: Mon, 9 Dec 2013 16:29:15 -0500
 Subject: [PATCH] Prep install target for debian build
 
 ---
@@ -36,7 +36,7 @@ index d4da634..f38b14a 100644
  	else {
 -        	target.path = /usr/lib
 -		headerfiles.path = /usr/include/syntro/SyntroControlLib
-+        	target.path = $$PREFIX/lib
++		target.path = $$PREFIX/lib
 +		headerfiles.path = $$PREFIX/include/syntro/SyntroControlLib
  	}
  
@@ -111,7 +111,7 @@ index 2901508..e580ac8 100644
  	}
  
 diff --git a/SyntroLog/SyntroLog.pro b/SyntroLog/SyntroLog.pro
-index 17bf89e..577e179 100644
+index 3ac6763..2011c2a 100644
 --- a/SyntroLog/SyntroLog.pro
 +++ b/SyntroLog/SyntroLog.pro
 @@ -28,7 +28,7 @@ unix {
