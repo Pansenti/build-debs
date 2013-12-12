@@ -7,11 +7,10 @@ Subject: [PATCH] Prep install target for debian build
  SyntroControl/SyntroControl.pro       |  2 +-
  SyntroControlLib/SyntroControlLib.pro |  4 ++--
  SyntroDB/SyntroDB.pro                 |  2 +-
- SyntroExec/SyntroExec.pro             |  2 +-
  SyntroGUI/SyntroGUI.pro               |  4 ++--
  SyntroLib/SyntroLib.pro               | 10 +++++-----
  SyntroLog/SyntroLog.pro               |  2 +-
- 7 files changed, 13 insertions(+), 13 deletions(-)
+ 6 files changed, 11 insertions(+), 11 deletions(-)
 
 diff --git a/SyntroControl/SyntroControl.pro b/SyntroControl/SyntroControl.pro
 index 9a81b63..63b1f79 100644
@@ -54,19 +53,6 @@ index 098f89f..fb0fb75 100644
  	}
  
  	INSTALLS += target
-diff --git a/SyntroExec/SyntroExec.pro b/SyntroExec/SyntroExec.pro
-index 1f323b3..faea714 100644
---- a/SyntroExec/SyntroExec.pro
-+++ b/SyntroExec/SyntroExec.pro
-@@ -27,7 +27,7 @@ unix {
- 		target.path = /usr/local/bin
- 	}
- 	else {
--		target.path = /usr/bin
-+		target.path = $$PREFIX/bin
- 	}
- 
-         INSTALLS += target
 diff --git a/SyntroGUI/SyntroGUI.pro b/SyntroGUI/SyntroGUI.pro
 index f97e1dd..8a4339a 100644
 --- a/SyntroGUI/SyntroGUI.pro

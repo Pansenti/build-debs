@@ -3,11 +3,16 @@
 # Generate a deb installer for SyntroLCam
 #
 
-mkdir temp
+if [ -d temp ]; then
+    rm -rf temp/*
+else
+    mkdir temp
+fi
+
 cd temp
 
 # get a fresh snapshot of the public repo 
-git clone https://github.com/Syntro/SyntroLCam.git
+git clone git@github.com:Pansenti/SyntroLCam.git
 
 # fix up install paths and adjust top level .pro to only build libraries
 cp ../patches/syntrolcam_dpkg_prep.patch SyntroLCam

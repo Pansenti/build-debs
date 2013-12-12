@@ -1,5 +1,6 @@
-syntrolcam (0.8.0) unstable; urgency=low
+syntrolcam (0.9.1) unstable; urgency=low
 
-  * Initial Release.
+  * Add sound support 
+  * Use SyntroCore 0.9.1
 
- -- scott <scott@pansenti.com>  Tue, 26 Nov 2013 14:21:22 -0500
+ -- scott <scott@pansenti.com>  Thu, 12 Dec 2013 08:43:22 -0500
