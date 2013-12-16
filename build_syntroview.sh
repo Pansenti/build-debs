@@ -12,7 +12,7 @@ fi
 cd temp
 
 # get a fresh snapshot of the public repo 
-git clone https://github.com:Pansenti/SyntroView.git
+git clone https://github.com/Syntro/SyntroView.git
 
 # fix up install paths and adjust top level .pro to only build libraries
 cp ../patches/syntroview_dpkg_prep.patch SyntroView
