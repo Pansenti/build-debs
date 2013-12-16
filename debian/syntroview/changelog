@@ -1,5 +1,5 @@
-syntroview (0.9.3) unstable; urgency=low
+syntroview (0.9.4) unstable; urgency=low
 
-  * Improved sound support 
+  * Fix crash when all sources removed 
 
- -- scott <scott@pansenti.com>  Sat, 14 Dec 2013 11:00:00 -0500
+ -- scott <scott@pansenti.com>  Mon, 16 Dec 2013 11:04:00 -0500
