@@ -12,7 +12,7 @@ fi
 cd temp
 
 # get a fresh snapshot of the public repo 
-git clone git@github.com:Pansenti/SyntroLCam.git
+git clone https://github.com/Syntro/SyntroLCam.git
 
 # fix up install paths and adjust top level .pro to only build libraries
 cp ../patches/syntrolcam_dpkg_prep.patch SyntroLCam
