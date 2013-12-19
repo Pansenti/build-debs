@@ -1,17 +1,31 @@
-From 1b6b4d8856a5ed885f716f65ae1992630578806f Mon Sep 17 00:00:00 2001
+From 07c20cfe3c445cab9728beb8d5416b3b5af91dc7 Mon Sep 17 00:00:00 2001
 From: Scott Ellis <scott@pansenti.com>
-Date: Mon, 9 Dec 2013 16:29:15 -0500
+Date: Thu, 19 Dec 2013 07:45:07 -0500
 Subject: [PATCH] Prep install target for debian build
 
 ---
+ SyntroAlert/SyntroAlert.pro           |  2 +-
  SyntroControl/SyntroControl.pro       |  2 +-
  SyntroControlLib/SyntroControlLib.pro |  4 ++--
  SyntroDB/SyntroDB.pro                 |  2 +-
  SyntroGUI/SyntroGUI.pro               |  4 ++--
  SyntroLib/SyntroLib.pro               | 10 +++++-----
  SyntroLog/SyntroLog.pro               |  2 +-
- 6 files changed, 11 insertions(+), 11 deletions(-)
+ 7 files changed, 13 insertions(+), 13 deletions(-)
 
+diff --git a/SyntroAlert/SyntroAlert.pro b/SyntroAlert/SyntroAlert.pro
+index 14b1119..7e4ad54 100644
+--- a/SyntroAlert/SyntroAlert.pro
++++ b/SyntroAlert/SyntroAlert.pro
+@@ -28,7 +28,7 @@ unix {
+ 		target.path = /usr/local/bin
+ 	}
+ 	else {
+-		target.path = /usr/bin
++		target.path = $$PREFIX/bin
+ 	}
+ 
+ 	INSTALLS += target
 diff --git a/SyntroControl/SyntroControl.pro b/SyntroControl/SyntroControl.pro
 index 9a81b63..63b1f79 100644
 --- a/SyntroControl/SyntroControl.pro
@@ -26,7 +40,7 @@ index 9a81b63..63b1f79 100644
  
          INCLUDEPATH += ../SyntroLib \
 diff --git a/SyntroControlLib/SyntroControlLib.pro b/SyntroControlLib/SyntroControlLib.pro
-index d4da634..f38b14a 100644
+index d4da634..6206c75 100644
 --- a/SyntroControlLib/SyntroControlLib.pro
 +++ b/SyntroControlLib/SyntroControlLib.pro
 @@ -20,8 +20,8 @@ unix {
