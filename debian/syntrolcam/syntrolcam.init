@@ -1,8 +1,8 @@
 #! /bin/sh
 ### BEGIN INIT INFO
 # Provides:          syntrolcam
-# Required-Start:    $network
-# Required-Stop:     $network
+# Required-Start:    $network $remote_fs $all
+# Required-Stop:     $network $remote_fs $all
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Syntro web camera initscript
@@ -36,9 +36,6 @@ SCRIPTNAME=/etc/init.d/syntrolcam
 # and status_of_proc is working.
 . /lib/lsb/init-functions
 
-#
-# Function that starts the daemon/service
-#
 do_start()
 {
 	case "$START_CAMERA" in
@@ -47,66 +44,27 @@ do_start()
 			;;
 	esac
 
-        start-stop-daemon --start --quiet --exec $DAEMON --test > /dev/null \
-                || return 1
-
-        start-stop-daemon --start --quiet --exec $DAEMON -- $DAEMON_ARGS \
-                || return 2
+	$DAEMON $DAEMON_ARGS
 }
 
-#
-# Function that stops the daemon/service
-#
 do_stop()
 {
-        start-stop-daemon --stop --quiet --name $NAME
-
-        RETVAL="$?"
-        [ "$RETVAL" = 2 ] && return 2
-
-        return "$RETVAL"
+	/usr/bin/killall $NAME	
 }
 
 case "$1" in
   start)
         [ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
         do_start
-        case "$?" in
-                0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-                2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
-        esac
+        [ "$VERBOSE" != no ] && log_end_msg 0
         ;;
   stop)
         [ "$VERBOSE" != no ] && log_daemon_msg "Stopping $DESC" "$NAME"
         do_stop
-        case "$?" in
-                0|1) [ "$VERBOSE" != no ] && log_end_msg 0 ;;
-                2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
-        esac
-        ;;
-  status)
-        status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
-        ;;
-  restart)
-        log_daemon_msg "Restarting $DESC" "$NAME"
-        do_stop
-        case "$?" in
-          0|1)
-                do_start
-                case "$?" in
-                        0) log_end_msg 0 ;;
-                        1) log_end_msg 1 ;; # Old process is still running
-                        *) log_end_msg 1 ;; # Failed to start
-                esac
-                ;;
-          *)
-                # Failed to stop
-                log_end_msg 1
-                ;;
-        esac
-        ;;
+        [ "$VERBOSE" != no ] && log_end_msg 0
+	;;
   *)
-        echo "Usage: $SCRIPTNAME {start|stop|restart}" >&2
+        echo "Usage: $SCRIPTNAME {start|stop}" >&2
         exit 3
         ;;
 esac
