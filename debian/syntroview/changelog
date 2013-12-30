@@ -1,6 +1,5 @@
-syntroview (0.9.5) unstable; urgency=low
+syntroview (0.9.6) unstable; urgency=low
 
-  * Cleanup dialogs 
-  * Use SyntroCore v0.9.2
+  * Rework the message passing between threads 
 
- -- scott <scott@pansenti.com>  Mon, 19 Dec 2013 06:42:00 -0500
+ -- scott <scott@pansenti.com>  Mon, 30 Dec 2013 16:53:00 -0500
