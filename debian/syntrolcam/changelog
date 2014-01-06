@@ -1,6 +1,8 @@
-syntrolcam (0.9.4) unstable; urgency=low
+syntrolcam (0.9.5) unstable; urgency=low
 
   * Grab exclusive use of video device
-  # Log audio messages using Syntro 
+  * Log audio messages using Syntro 
+  * Fix low rate stream issue
+  * PRIORITY ioctl not available for all kernels
 
- -- scott <scott@pansenti.com>  Thu, 26 Dec 2013 13:18:00 -0500
+ -- scott <scott@pansenti.com>  Sun, 5 Jan 2014 16:11:00 -0500

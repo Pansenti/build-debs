@@ -1,6 +1,7 @@
-libsyntrocore (0.9.2) unstable; urgency=low
+libsyntrocore (0.9.3) unstable; urgency=low
 
-  * Introduce SyntroAlert, support alert()
-  * Cleanup dialogs 
+  * Check input for clientSendMessage 
+  * Add newline to end of headers
+  * Add PWD path info to .pris 
 
- -- scott <scott@pansenti.com>  Thu, 19 Dec 2013 06:44:00 -0500
+ -- scott <scott@pansenti.com>  Sun, 5 Jan 2014 16:17:00 -0500
